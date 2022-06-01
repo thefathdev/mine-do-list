@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/018b2ffbe7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Mine Do List</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="todo">
+        <div class="todo__header">
+          <h1>mine-do-list</h1>
+          <p>your cheerful todo list✨</p>
+        </div>
+
+        <form class="todo__add">
+          <input
+            class="todo__add-input"
+            type="text"
+            name="todo-input"
+            id="todo-input"
+          />
+          <button class="todo__add-button" id="todo-btn">
+            <i class="fa-solid fa-circle-plus"></i>
+          </button>
+        </form>
+
+        <div class="todo__content">
+          <ul class="todo__list" id="todo-list">
+            <!-- <div class="todo__list-box">
+              <li class="todo__list-item"></li>
+              button class todo__list-mark
+              button class todo__list-delete
+            </div> -->
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
