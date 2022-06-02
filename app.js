@@ -1,6 +1,7 @@
 // Selectors
 const addBtn = document.getElementById('todo-btn')
 const todoList = document.getElementById('todo-list')
+const todoInput = document.getElementById('todo-input')
 
 // Event Listeners
 addBtn.addEventListener('click', addList)
@@ -16,7 +17,7 @@ function addList(event) {
   // Generate li
   const addLi = document.createElement('li')
   addLi.classList.add('todo__list-item')
-  addLi.innerText = 'Hayyy mi nee'
+  addLi.innerText = todoInput.value
 
   // Append li to div
   addDiv.appendChild(addLi)
@@ -27,7 +28,7 @@ function addList(event) {
   markBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
   const deleteBtn = document.createElement('button')
   deleteBtn.classList.add('todo__list-delete')
-  deleteBtn.innerHTML = '<i class="fa-solid fa-circle-minus"></i>'
+  deleteBtn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>'
 
   // Append buttons to div
   addDiv.appendChild(markBtn)
@@ -35,4 +36,7 @@ function addList(event) {
 
   // Append div to ul
   todoList.appendChild(addDiv)
+
+  // Clear todo input value
+  todoInput.value = ''
 }
