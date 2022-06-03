@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
+@mixin hover-btn($bg-color) {
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+
+  &:hover {
+    color: white;
+    background-color: $bg-color;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +24,14 @@ body {
 
 button {
   cursor: pointer;
+}
+
+select {
+  appearance: none;
+  border: none;
+  outline: none;
+
+  background-color: white;
 }
 
 .container {
@@ -60,6 +79,7 @@ button {
       i {
         font-size: 1.5rem;
         color: hsl(216, 67%, 52%);
+        @include hover-btn(hsl(216, 67%, 52%));
       }
     }
 
@@ -86,6 +106,7 @@ button {
       align-items: center;
       font-size: clamp(0.75rem, 5vw, 1.5rem);
       gap: 0.5rem;
+      transition: all 0.5s ease;
     }
 
     &-item {
@@ -100,17 +121,76 @@ button {
     &-delete {
       border: none;
       background-color: white;
+      color: hsl(132, 61%, 42%);
+      @include hover-btn(hsl(132, 61%, 42%));
 
       i {
         font-size: clamp(1rem, 5vw, 1.5rem);
-        color: hsl(132, 61%, 42%);
       }
     }
 
     &-delete {
-      i {
-        color: hsl(7, 76%, 56%);
+      color: hsl(7, 76%, 56%);
+
+      &:hover {
+        background-color: hsl(7, 76%, 56%);
       }
     }
   }
+
+  &__filter {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1.25rem 35%;
+
+    select {
+      color: black;
+      text-align: start;
+      width: 10rem;
+      font-family: 'Ubuntu Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(0.5rem, 5vw, 1.25rem);
+      cursor: pointer;
+      text-decoration: underline;
+      color: hsl(0, 0%, 79%);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: '\f0b0';
+      pointer-events: none;
+      font-size: clamp(0.5rem, 5vw, 1.15rem);
+      color: hsl(0, 0%, 79%);
+      transition: color 0.3s ease;
+      margin-right: 0.5rem;
+    }
+
+    &:hover::before {
+      color: hsl(0, 0%, 0%);
+    }
+  }
+}
+
+.fa-circle-check,
+.fa-circle-xmark {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }

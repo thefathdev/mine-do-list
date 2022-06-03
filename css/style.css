@@ -15,6 +15,15 @@ button {
   cursor: pointer;
 }
 
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
 .container {
   min-height: 100vh;
   display: -webkit-box;
@@ -74,6 +83,15 @@ button {
 .todo__add-input i, .todo__add-button i {
   font-size: 1.5rem;
   color: #3374d7;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.todo__add-input i:hover, .todo__add-button i:hover {
+  color: white;
+  background-color: #3374d7;
 }
 
 .todo__add-input {
@@ -107,6 +125,8 @@ button {
           align-items: center;
   font-size: clamp(0.75rem, 5vw, 1.5rem);
   gap: 0.5rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .todo__list-item {
@@ -122,14 +142,92 @@ button {
 .todo__list-mark, .todo__list-delete {
   border: none;
   background-color: white;
+  color: #2aac44;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.todo__list-mark:hover, .todo__list-delete:hover {
+  color: white;
+  background-color: #2aac44;
 }
 
 .todo__list-mark i, .todo__list-delete i {
   font-size: clamp(1rem, 5vw, 1.5rem);
-  color: #2aac44;
 }
 
-.todo__list-delete i {
+.todo__list-delete {
   color: #e44d3a;
+}
+
+.todo__list-delete:hover {
+  background-color: #e44d3a;
+}
+
+.todo__filter {
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 1.25rem 35%;
+}
+
+.todo__filter select {
+  color: black;
+  text-align: start;
+  width: 10rem;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(0.5rem, 5vw, 1.25rem);
+  cursor: pointer;
+  text-decoration: underline;
+  color: #c9c9c9;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.todo__filter select:hover {
+  color: black;
+}
+
+.todo__filter::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f0b0';
+  pointer-events: none;
+  font-size: clamp(0.5rem, 5vw, 1.15rem);
+  color: #c9c9c9;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.todo__filter:hover::before {
+  color: black;
+}
+
+.fa-circle-check,
+.fa-circle-xmark {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  -webkit-transform: translateY(8rem) rotateZ(20deg);
+          transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */

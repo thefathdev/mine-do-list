@@ -2,9 +2,12 @@
 const addBtn = document.getElementById('todo-btn')
 const todoList = document.getElementById('todo-list')
 const todoInput = document.getElementById('todo-input')
+const todoFilter = document.querySelector('.todo__filter')
 
 // Event Listeners
 addBtn.addEventListener('click', addList)
+todoList.addEventListener('click', deleteItem)
+todoFilter.addEventListener('click', filterTodo)
 
 // Functions
 function addList(event) {
@@ -39,4 +42,51 @@ function addList(event) {
 
   // Clear todo input value
   todoInput.value = ''
+}
+
+function deleteItem(event) {
+  const item = event.target
+
+  // Delete todo list
+  if (item.classList[0] === 'todo__list-delete') {
+    const todo = item.parentElement
+    // Animate todo item
+    todo.classList.add('fall')
+    // Remove todo item
+    todo.addEventListener('transitionend', () => todo.remove())
+  }
+
+  // Check mark todo list
+  if (item.classList[0] === 'todo__list-mark') {
+    const todo = item.parentElement
+    todo.classList.toggle('completed')
+  }
+}
+
+function filterTodo(e) {
+  const todos = todoList.childNodes
+  todos.forEach(function (todo) {
+    const todoStyle = todo.style
+    if (todoStyle != undefined && todoStyle != null) {
+      switch (e.target.value) {
+        case 'All':
+          todoStyle.display = 'flex'
+          break
+        case 'Completed':
+          if (todo.classList.contains('completed')) {
+            todoStyle.display = 'flex'
+          } else {
+            todoStyle.display = 'none'
+          }
+          break
+        case 'Uncompleted':
+          if (todo.classList.contains('completed')) {
+            todoStyle.display = 'none'
+          } else {
+            todoStyle.display = 'flex'
+          }
+          break
+      }
+    }
+  })
 }
